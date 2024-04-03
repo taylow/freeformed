@@ -22,18 +22,18 @@ Note: This project is very early in development and should not be used in produc
 
 ✅ Implemented
 
-- 💾 URL-encoded form data handling and storage - Handle and store arbitrary form data without having to pre-configure the expected data
+- 🗄️ URL-encoded form data handling and storage - Handle and store arbitrary form data without having to pre-configure the expected data
 - 🗄️ Multipart-form data and file handling and storage - Handle and store multipart-form with or without attached files
 - 🗄️ JSON handling and storage - Handle and store json data
-- Postgres storage - Store data to a postgres database
-- S3 storage - Store files to an S3-compatible object store, such as MinIO, etc.
+- 💾 Postgres storage - Store data to a postgres database
+- 💾 S3 storage - Store files to an S3-compatible object store, such as MinIO, etc.
 
 💡 Upcoming
 
 - 🕹️ Dashboard - Create/edit forms, view/delete submissions, configure data sources, all from the comfort of your browser
 - 🖥️ CLI/TUI - Host a minimal version of the form through CLI/TUI for quick and easy form processing
-- Docker Compose stack - A full-feature docker-compose stack
-- Supabase/Firebase/Pocketbase Support - For quick and easy hosting without the complexity of hosting an entire docker stack  
+- ⚓️ Docker Compose stack - A full-feature docker-compose stack
+- 🗄️ Supabase/Firebase/Pocketbase Support - For quick and easy hosting without the complexity of hosting an entire docker stack  
 - 📧 Email forwarding - Forward form submissions directly to various email addresses
 - 🪝 3rd party integrations - Forward your data to various sources, such as Slack, Discord, and Webhooks
 - 🏁 Origin protection - Prevent other sites and bots from using your form URL
