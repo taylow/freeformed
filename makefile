@@ -13,6 +13,18 @@ test:
 build:
 	go build -o bin/freeformed cmd/freeformed/main.go
 
+.PHONY: docker
+docker-build:
+	docker build -t freeformed .
+	
+.PHONY: docker-run
+docker-run:
+	docker run -p 8080:8080 freeformed
+
+.PHONY: stack
+stack:
+	docker-compose up -d
+	
 .PHONY: sqlc
 sqlc:
 	sqlc generate
@@ -24,7 +36,3 @@ migrate:
 .PHONY: migrate-down
 migrate-down:
 	migrate -path sql/migration -database "postgresql://freeformed:freeformed@localhost:5432/freeformed?sslmode=disable" down
-
-.PHONY: stack
-stack:
-	docker-compose up -d
