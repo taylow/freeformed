@@ -1,0 +1,26 @@
+meta {
+  name: Submit Form
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8080/submit
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Content-Type: multipart/form-data
+}
+
+body:form-urlencoded {
+  aaaaa: aaaaaaaaaa
+  bbbbb: bbbbbbbbbb
+}
+
+body:multipart-form {
+  aaaaa: aaaaaaaaaa
+  age: 100
+  test??: ?!?!?!?!?!?
+}
