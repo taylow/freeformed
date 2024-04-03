@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"database/sql"
 	"flag"
 	"fmt"
 	"log"
@@ -13,6 +14,7 @@ import (
 
 	"github.com/taylow/freeformed/config"
 	"github.com/taylow/freeformed/data"
+	formdb "github.com/taylow/freeformed/db/form"
 	"github.com/taylow/freeformed/errors"
 	"github.com/taylow/freeformed/form"
 	"github.com/taylow/freeformed/random"
@@ -63,6 +65,13 @@ func main() {
 func run() error {
 	ctx := context.Background()
 
+	db, err := initDatabase(ctx)
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+	formDB := formdb.New(db)
+
 	logger.Debug("setting up interrupts")
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
@@ -99,7 +108,7 @@ func run() error {
 		form.WithMaxFiles(10),
 		form.WithStaticFormID(FormID),
 	)
-	handler := form.NewHandler(handlerConfig, nil, dataRepository, fileRepository)
+	handler := form.NewHandler(handlerConfig, formDB, dataRepository, fileRepository)
 
 	logger.Debug("setting up server")
 	router := http.NewServeMux()
@@ -144,4 +153,18 @@ func initLogger() (*slog.Logger, *log.Logger) {
 	slog.SetDefault(logger)
 
 	return logger, slog.NewLogLogger(handler, LogLevel)
+}
+
+// initDatabase initialises the database
+func initDatabase(ctx context.Context) (*sql.DB, error) {
+	db, err := sql.Open("postgres", DSN)
+	if err != nil {
+		return nil, errors.Wrap(err, "unable to connect to database")
+	}
+
+	if err := db.PingContext(ctx); err != nil {
+		return nil, errors.Wrap(err, "unable to ping database")
+	}
+
+	return db, nil
 }
