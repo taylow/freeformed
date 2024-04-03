@@ -1,0 +1,29 @@
+BEGIN;
+
+CREATE TABLE "form" (
+    id TEXT PRIMARY KEY,
+    project_id UUID NOT NULL,
+    name VARCHAR(255) NOT NULL DEFAULT '',
+    description TEXT NOT NULL DEFAULT '',
+    color TEXT NOT NULL DEFAULT '#000000',
+    enabled BOOLEAN DEFAULT TRUE NOT NULL,
+    file_uploads_enabled BOOLEAN DEFAULT TRUE NOT NULL,
+    redirect_url TEXT NOT NULL,
+    -- api_access BOOLEAN DEFAULT FALSE,
+    -- spam_protection BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP WITH TIME ZONE DEFAULT NULL,
+    FOREIGN KEY (project_id) REFERENCES project (id)
+);
+
+-- CREATE TABLE form_captcha (
+--     id UUID PRIMARY KEY,
+--     form_id UUID NOT NULL,
+--     site_key TEXT,
+    
+--     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+--     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+-- );
+
+END;

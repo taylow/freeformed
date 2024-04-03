@@ -1,0 +1,15 @@
+BEGIN;
+
+CREATE TABLE "team" (
+    id UUID PRIMARY KEY,
+    name VARCHAR(255) NOT NULL DEFAULT '',
+    description TEXT NOT NULL DEFAULT '',
+    enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    owner_id UUID NOT NULL, -- TODO decide if this will be handled by keto
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP WITH TIME ZONE DEFAULT NULL,
+    FOREIGN KEY (owner_id) REFERENCES "user" (id)
+);
+
+END;
