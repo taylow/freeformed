@@ -1,6 +1,14 @@
 version: "3.9"
 
 services:
+  freeformed:
+    image: freeformed/freeformed:latest
+    container_name: freeformed
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+      dockerfile: Dockerfile
   minio:
     image: minio/minio
     container_name: minio
