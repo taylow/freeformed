@@ -1,15 +1,15 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=300px src="https://raw.githubusercontent.com/taylow/freeformed/main/docs/img/freeformed-logo.png.png" alt="Freeformed logo"></a>
+ <img width=300px src="https://raw.githubusercontent.com/taylow/freeformed/main/docs/img/freeformed-logo.png" alt="Freeformed logo"></a>
 </p>
 
 <h3 align="center">Freeformed - An open source HTML form processing service!</h3>
 
 <div align="center">
-    [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-    [![GitHub Issues](https://img.shields.io/github/issues/taylow/freeformed.svg)](https://github.com/taylow/freeformed/issues)
-    [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/taylow/freeformed.svg)](https://github.com/taylow/freeformed/pulls)
-    <!-- [![License](https://img.shields.io/badge/license-CC--BY--NC--SA--4.0-blue)](/LICENSE) -->
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/taylow/freeformed.svg)](https://github.com/taylow/freeformed/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/taylow/freeformed.svg)](https://github.com/taylow/freeformed/pulls)
+<!-- [![License](https://img.shields.io/badge/license-CC--BY--NC--SA--4.0-blue)](/LICENSE) -->
 </div>
 
 ---
