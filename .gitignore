@@ -1,4 +1,4 @@
 .DS_Store
-formdata.json
-upload
-test
+test/*
+tmp/*
+bin/*
