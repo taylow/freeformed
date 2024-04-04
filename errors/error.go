@@ -7,6 +7,8 @@ import (
 )
 
 var (
+	// ErrNotFound is returned when the resource is not found
+	ErrNotFound = New("not found").WithCode(http.StatusNotFound)
 	// ErrInvalidContentType is returned when the content type is invalid
 	ErrInvalidContentType = New("invalid content type").WithCode(http.StatusUnsupportedMediaType)
 	// ErrMaxRequestSizeExceeded is returned when the request size exceeds the max request size
@@ -29,6 +31,8 @@ var (
 	ErrFormDisabled = New("form is disabled").WithCode(http.StatusForbidden)
 	// ErrFormDeleted is returned when the form is deleted
 	ErrFormDeleted = New("form is deleted").WithCode(http.StatusForbidden)
+	// ErrFormNotFound is returned when the form is not found
+	ErrFormNotFound = New("form not found").WithCode(http.StatusNotFound)
 )
 
 // Wrap wraps an error with a message

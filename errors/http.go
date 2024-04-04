@@ -40,9 +40,12 @@ type ErrorResponse struct {
 
 // Handle404 is a http.HandlerFunc that returns a 404 response
 func Handle404() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusNotFound)
-		json.NewEncoder(w).Encode(ErrorResponse{Message: "not found", Code: http.StatusNotFound})
+	return HandleWithError(Handle404WithError())
+}
+
+// Handle404WithError returns a HandlerWithErrorFunc that returns a 404 response
+func Handle404WithError() HandleWithErrorFunc {
+	return func(w http.ResponseWriter, r *http.Request) error {
+		return ErrNotFound
 	}
 }
